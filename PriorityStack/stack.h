@@ -4,12 +4,13 @@
 #include <map>
 
 template <typename T>
-class PriorityStack
+class PriorityStackClass
 {
 public:
     void Push(T value, int priority);
     void Push(T value);
     T Pop();
+    int Count();
 private:
     std::map<int, std::stack<T>> stacks_;
 };

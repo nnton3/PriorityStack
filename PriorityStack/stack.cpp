@@ -1,6 +1,6 @@
 #include "stack.h"
 
-void stack::push(T value, int priority)
+template<typename T> void PriorityStackClass<T>::Push(T value, int priority)
 {
 	//stacks_.
 }

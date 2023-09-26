@@ -129,6 +129,9 @@
   <ItemGroup>
     <ClCompile Include="PriorityStack.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PriorityStack.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
