@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\PriorityStack"
   ],
-  "SelectedNode": "\\PriorityStack.sln",
+  "SelectedNode": "\\PriorityStack\\PriorityStack.cpp",
   "PreviewInSolutionExplorer": false
 }
