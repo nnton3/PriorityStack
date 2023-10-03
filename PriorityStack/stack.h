@@ -13,16 +13,9 @@ public:
     void Push(T value, int priority)
     {
         if (stacks_.find(priority) != stacks_.end())
-        {
-            stack<T>* targetStack = &stacks_[priority];
-            (*targetStack).push(value);
-        }
+            stacks_.at(priority).push(value);
         else
-        {
-            stack<T> stack;             //записываю копию или тот который сдесь создал?
-            stack.push(value);
-            stacks_[priority] = stack;
-        }
+            stacks_[priority].push(value);
     }
 
     void Push(T value)
@@ -32,27 +25,24 @@ public:
 
     T Pop()
     {
-        if (stacks_.empty()) return NULL;
-        for (auto it = stacks_.begin(); it != stacks_.end(); ++it)
-        {
-            stack<T>& stack = it->second;
-            if (stack.empty())
-                continue;
-            T res = stack.top();    //Если брать по ссылке, то после pop данные удаляются из памяти?!
-            stack.pop();
-            return res;
-        }
-        return NULL;                //TODO: drop ex
+        if (stacks_.empty()) 
+            return nullptr;
+
+        auto priority = stacks_.begin()->first;
+        auto stack = &stacks_[priority];
+        T res = stack->top();
+        stack->pop();
+        if (stack->size() == 0) 
+            stacks_.erase(priority);
+        return res;
     }
 
     int Count()
     {
         int count = 0;
-        for (auto it = stacks_.begin(); it != stacks_.end(); ++it)
-        {
-            count += (it->second).size();
-        }
-
+        for (auto pair: stacks_)
+            count += pair.second.size();
+        
         return count;
     }
 

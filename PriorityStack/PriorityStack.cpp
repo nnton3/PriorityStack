@@ -21,7 +21,6 @@ int main()
     stack.Push(steve, 5);
     stack.Push(ana, 1);
     stack.Push(alex, 5);
-    stack.Push(alex, 2);
 
     int count = stack.Count();
     for (int i = 0; i < count; i++)
